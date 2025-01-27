@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skibidi Toilet Fan Web</title>
+  <title>Ultimate Skibidi Toilet Fan Web</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -14,16 +15,38 @@
       background-color: #f0f0f0;
       color: #333;
       transition: background-color 0.3s, color 0.3s;
+      cursor: url('custom-cursor.png'), auto;
     }
     body.dark-mode {
       background-color: #121212;
       color: #ffffff;
     }
     header {
-      background-color: #333;
+      background: url('skibidi-header.jpg') center/cover no-repeat;
       color: white;
-      padding: 20px;
+      padding: 150px 20px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    header h1 {
+      position: relative;
+      z-index: 1;
+      font-size: 3rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     nav {
       background-color: #444;
@@ -140,11 +163,26 @@
     .dark-mode-toggle:hover {
       background-color: #555;
     }
+    .countdown {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 1.5rem;
+    }
+    .chatbot {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Welcome to the Skibidi Toilet Fan Web!</h1>
+    <h1>Welcome to the Ultimate Skibidi Toilet Fan Web!</h1>
   </header>
   <nav>
     <a href="#about">About</a>
@@ -162,9 +200,15 @@
     <section id="gallery">
       <h2>Gallery</h2>
       <div class="gallery">
-        <img src="https://via.placeholder.com/300" alt="Skibidi Toilet Image 1">
-        <img src="https://via.placeholder.com/300" alt="Skibidi Toilet Image 2">
-        <img src="https://via.placeholder.com/300" alt="Skibidi Toilet Image 3">
+        <a href="https://via.placeholder.com/600" data-lightbox="gallery" data-title="Skibidi Toilet Image 1">
+          <img src="https://via.placeholder.com/300" alt="Skibidi Toilet Image 1">
+        </a>
+        <a href="https://via.placeholder.com/600" data-lightbox="gallery" data-title="Skibidi Toilet Image 2">
+          <img src="https://via.placeholder.com/300" alt="Skibidi Toilet Image 2">
+        </a>
+        <a href="https://via.placeholder.com/600" data-lightbox="gallery" data-title="Skibidi Toilet Image 3">
+          <img src="https://via.placeholder.com/300" alt="Skibidi Toilet Image 3">
+        </a>
       </div>
     </section>
     <section id="videos">
@@ -182,6 +226,10 @@
         <button type="submit">Submit</button>
       </form>
     </section>
+    <section id="countdown">
+      <h2>Countdown to Next Skibidi Toilet Event</h2>
+      <div class="countdown" id="countdown-timer"></div>
+    </section>
   </div>
   <footer>
     <div class="social-links">
@@ -193,9 +241,62 @@
     <p>&copy; 2024 Skibidi Toilet Fan Web. All rights reserved.</p>
   </footer>
   <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+  <div class="chatbot" onclick="openChatbot()">💬 Chat with Skibidi Bot</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
   <script>
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Dark Mode with localStorage
+    const darkModeToggle = document.querySelector('.dark-mode-toggle');
+    const body = document.body;
+
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+      body.classList.add('dark-mode');
+    }
+
     function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
+      body.classList.toggle('dark-mode');
+      if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('dark-mode', 'enabled');
+      } else {
+        localStorage.setItem('dark-mode', 'disabled');
+      }
+    }
+
+    // Countdown Timer
+    const countdownTimer = document.getElementById('countdown-timer');
+    const eventDate = new Date('2024-12-31T00:00:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const timeLeft = eventDate - now;
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      countdownTimer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      if (timeLeft < 0) {
+        clearInterval(interval);
+        countdownTimer.innerHTML = 'Event has started!';
+      }
+    }
+
+    const interval = setInterval(updateCountdown, 1000);
+
+    // Chatbot
+    function openChatbot() {
+      alert("Chatbot feature coming soon!");
     }
   </script>
 </body>
