@@ -85,7 +85,7 @@
     body.dark-mode h1, body.dark-mode h2 {
       color: #ffffff;
     }
-    .gallery {https://www.instagram.com/reel/Cu98SSXsSFx/?igsh=MTcwczN2cWcxbWZ5ag==
+    .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 10px;
@@ -178,6 +178,21 @@
       border-radius: 8px;
       cursor: pointer;
     }
+    .meme-coin-announcement {
+      background-color: #ffcc00;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .meme-coin-announcement a {
+      color: #333;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .meme-coin-announcement a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -189,6 +204,7 @@
     <a href="#gallery">Gallery</a>
     <a href="#videos">Videos</a>
     <a href="#submit">Submit Fan Art</a>
+    <a href="#meme-coin">Meme Coin</a>
   </nav>
   <div class="container">
     <section id="about">
@@ -196,6 +212,19 @@
       <p>
         Skibidi Toilet is a surreal and viral meme that originated from a YouTube series. It features bizarre and humorous scenarios involving anthropomorphic toilets and other strange characters. The meme has taken the internet by storm, with countless remixes, parodies, and fan creations.
       </p>
+    </section>
+    <section id="meme-coin">
+      <h2>Official Skibidi Toilet Meme Coin</h2>
+      <div class="meme-coin-announcement">
+        <p>
+          🚨 **BREAKING NEWS** 🚨<br>
+          The official Skibidi Toilet Meme Coin has been announced! Check out the announcement on Twitter:
+          <a href="https://twitter.com/HqSkibid9586" target="_blank">@HqSkibid9586</a>.
+        </p>
+        <p>
+          🚀 Don't miss out on the next big meme coin! Follow the official account for updates.
+        </p>
+      </div>
     </section>
     <section id="gallery">
       <h2>Gallery</h2>
