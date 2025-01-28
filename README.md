@@ -85,7 +85,7 @@
     body.dark-mode h1, body.dark-mode h2 {
       color: #ffffff;
     }
-    .gallery {
+    .gallery {https://www.instagram.com/reel/Cu98SSXsSFx/?igsh=MTcwczN2cWcxbWZ5ag==
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 10px;
