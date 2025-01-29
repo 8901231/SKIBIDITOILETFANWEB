@@ -193,6 +193,63 @@
     .meme-coin-announcement a:hover {
       text-decoration: underline;
     }
+    .crypto-tracker {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .crypto-tracker h3 {
+      margin-bottom: 10px;
+    }
+    .crypto-tracker p {
+      margin: 5px 0;
+    }
+    .newsletter {
+      background-color: #e9ecef;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .newsletter h3 {
+      margin-bottom: 10px;
+    }
+    .chatbot-popup {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      left: 20px;
+      width: 300px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      z-index: 1000;
+    }
+    .chatbot-popup.active {
+      display: block;
+    }
+    .chatbot-popup input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .chatbot-popup button {
+      width: 100%;
+      padding: 10px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .chatbot-popup button:hover {
+      background-color: #555;
+    }
   </style>
 </head>
 <body>
@@ -226,23 +283,39 @@
         </p>
       </div>
     </section>
-    <section id="meme-coin-countdown">
-      <h2>Countdown to Skibidi Toilet Meme Coin Launch</h2>
-      <div class="countdown" id="meme-coin-countdown-timer"></div>
+    <section id="crypto-tracker">
+      <h2>Skibidi Toilet Meme Coin Tracker</h2>
+      <div class="crypto-tracker">
+        <h3>Live Price</h3>
+        <p>Price: <span id="crypto-price">$0.00</span></p>
+        <p>Market Cap: <span id="crypto-market-cap">$0.00</span></p>
+        <p>24h Change: <span id="crypto-change">0.00%</span></p>
+      </div>
+    </section>
+    <section id="newsletter">
+      <h2>Subscribe to Our Newsletter</h2>
+      <div class="newsletter">
+        <h3>Get the latest updates about Skibidi Toilet and the Meme Coin!</h3>
+        <form id="newsletter-form">
+          <input type="email" placeholder="Your Email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
     </section>
     <section id="gallery">
       <h2>Gallery</h2>
       <div class="gallery">
-        <a href="https://via.placeholder.com/600" data-lightbox="gallery" data-title="Skibidi Toilet Image 1">
-          <img src="https://via.placeholder.com/300" alt="Skibidi Toilet Image 1">
+        <a href="https://i.imgur.com/xyz1234.jpg" data-lightbox="gallery" data-title="Skibidi Toilet Image 1">
+          <img src="https://i.imgur.com/xyz1234.jpg" alt="Skibidi Toilet Image 1">
         </a>
-        <a href="https://via.placeholder.com/600" data-lightbox="gallery" data-title="Skibidi Toilet Image 2">
-          <img src="https://via.placeholder.com/300" alt="Skibidi Toilet Image 2">
+        <a href="https://i.imgur.com/abc5678.jpg" data-lightbox="gallery" data-title="Skibidi Toilet Image 2">
+          <img src="https://i.imgur.com/abc5678.jpg" alt="Skibidi Toilet Image 2">
         </a>
-        <a href="https://via.placeholder.com/600" data-lightbox="gallery" data-title="Skibidi Toilet Image 3">
-          <img src="https://via.placeholder.com/300" alt="Skibidi Toilet Image 3">
+        <a href="https://i.imgur.com/def9101.jpg" data-lightbox="gallery" data-title="Skibidi Toilet Image 3">
+          <img src="https://i.imgur.com/def9101.jpg" alt="Skibidi Toilet Image 3">
         </a>
       </div>
+      <button id="load-more" style="display: block; margin: 20px auto;">Load More</button>
     </section>
     <section id="videos">
       <h2>Videos</h2>
@@ -274,7 +347,13 @@
     <p>&copy; 2024 Skibidi Toilet Fan Web. All rights reserved.</p>
   </footer>
   <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
-  <div class="chatbot" onclick="openChatbot()">💬 Chat with Skibidi Bot</div>
+  <div class="chatbot" onclick="toggleChatbot()">💬 Chat with Skibidi Bot</div>
+  <div class="chatbot-popup" id="chatbot-popup">
+    <h3>Skibidi Bot</h3>
+    <p>Ask me anything about Skibidi Toilet!</p>
+    <input type="text" id="chatbot-input" placeholder="Type your question...">
+    <button onclick="chatbotResponse()">Send</button>
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
   <script>
     // Smooth Scroll
@@ -306,18 +385,18 @@
 
     // Countdown Timer for Skibidi Toilet Event
     const countdownTimer = document.getElementById('countdown-timer');
-    const eventDate = new Date('2024-12-31T00:00:00').getTime();
+    const eventDate = new Date('2025-02-16T00:00:00').getTime();
 
     function updateCountdown() {
       const now = new Date().getTime();
-      const timeLeft = eventDate - FEBRUARI 16 2025;
+      const timeLeft = eventDate - now;
 
       const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
       const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-      countdownTimer.innerHTML = `${18}d ${6}h ${60}m ${60}s`;
+      countdownTimer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
       if (timeLeft < 0) {
         clearInterval(interval);
@@ -327,28 +406,49 @@
 
     const interval = setInterval(updateCountdown, 1000);
 
-    // Meme Coin Countdown Timer
-    const memeCoinCountdownTimer = document.getElementById('meme-coin-countdown-timer');
-    const memeCoinLaunchDate = new Date('2025-2-16T17:00:00').getTime();
-
-    function updateMemeCoinCountdown() {
-      const now = new Date().getTime();
-      const timeLeft = memeCoinLaunchDate - now;
-
-      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-      memeCoinCountdownTimer.innerHTML = `${18}d ${6}h ${60}m ${60}s`;
-
-      if (timeLeft < 18d) {
-        clearInterval(memeCoinInterval);
-        memeCoinCountdownTimer.innerHTML = 'LAUNCHED AT 16 FEBRUARI🚀🚀';
-      }
+    // Chatbot
+    function toggleChatbot() {
+      const chatbotPopup = document.getElementById('chatbot-popup');
+      chatbotPopup.classList.toggle('active');
     }
 
-    const memeCoinInterval = setInterval(updateMemeCoinCountdown, 1000);
+    function chatbotResponse() {
+      const input = document.getElementById('chatbot-input').value.toLowerCase();
+      let response = "I'm sorry, I don't understand. Can you ask something about Skibidi Toilet?";
+      if (input.includes("what is skibidi toilet")) {
+        response = "Skibidi Toilet is a viral meme featuring anthropomorphic toilets and strange characters!";
+      } else if (input.includes("meme coin")) {
+        response = "The Skibidi Toilet Meme Coin is the official cryptocurrency of the Skibidi Toilet universe!";
+      }
+      alert(response);
+    }
 
-    // Chatbot
-    function openChatbot() {
+    // Load More Gallery Images
+    document.getElementById('load-more').addEventListener('click', () => {
+      const gallery = document.querySelector('.gallery');
+      const newImages = [
+        { src: 'https://i.imgur.com/ghi1234.jpg', alt: 'Skibidi Toilet Image 4' },
+        { src: 'https://i.imgur.com/jkl5678.jpg', alt: 'Skibidi Toilet Image 5' },
+        { src: 'https://i.imgur.com/mno9101.jpg', alt: 'Skibidi Toilet Image 6' },
+      ];
+      newImages.forEach(image => {
+        const newImage = document.createElement('a');
+        newImage.href = image.src;
+        newImage.setAttribute('data-lightbox', 'gallery');
+        newImage.setAttribute('data-title', image.alt);
+        const img = document.createElement('img');
+        img.src = image.src;
+        img.alt = image.alt;
+        newImage.appendChild(img);
+        gallery.appendChild(newImage);
+      });
+    });
+
+    // Newsletter Form Submission
+    document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for subscribing!');
+    });
+
+    // Crypto Tracker (Placeholder API)
+    const
