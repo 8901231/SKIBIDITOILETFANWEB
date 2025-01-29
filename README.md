@@ -317,7 +317,7 @@
       const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-      countdownTimer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      countdownTimer.innerHTML = `${18}d ${6}h ${60}m ${60}s`;
 
       if (timeLeft < 0) {
         clearInterval(interval);
