@@ -352,8 +352,3 @@
 
     // Chatbot
     function openChatbot() {
-      alert("Chatbot feature coming soon!");
-    }
-  </script>
-</body>
-</html>
