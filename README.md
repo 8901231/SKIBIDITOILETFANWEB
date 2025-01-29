@@ -435,20 +435,4 @@
         const newImage = document.createElement('a');
         newImage.href = image.src;
         newImage.setAttribute('data-lightbox', 'gallery');
-        newImage.setAttribute('data-title', image.alt);
-        const img = document.createElement('img');
-        img.src = image.src;
-        img.alt = image.alt;
-        newImage.appendChild(img);
-        gallery.appendChild(newImage);
-      });
-    });
-
-    // Newsletter Form Submission
-    document.getElementById('newsletter-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Thank you for subscribing!');
-    });
-
-    // Crypto Tracker (Placeholder API)
-    const
+        newImage.setAttribute('data-title', image.alt)
