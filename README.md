@@ -226,6 +226,10 @@
         </p>
       </div>
     </section>
+    <section id="meme-coin-countdown">
+      <h2>Countdown to Skibidi Toilet Meme Coin Launch</h2>
+      <div class="countdown" id="meme-coin-countdown-timer"></div>
+    </section>
     <section id="gallery">
       <h2>Gallery</h2>
       <div class="gallery">
@@ -300,7 +304,7 @@
       }
     }
 
-    // Countdown Timer
+    // Countdown Timer for Skibidi Toilet Event
     const countdownTimer = document.getElementById('countdown-timer');
     const eventDate = new Date('2024-12-31T00:00:00').getTime();
 
@@ -322,6 +326,29 @@
     }
 
     const interval = setInterval(updateCountdown, 1000);
+
+    // Meme Coin Countdown Timer
+    const memeCoinCountdownTimer = document.getElementById('meme-coin-countdown-timer');
+    const memeCoinLaunchDate = new Date('2024-10-31T00:00:00').getTime();
+
+    function updateMemeCoinCountdown() {
+      const now = new Date().getTime();
+      const timeLeft = memeCoinLaunchDate - now;
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      memeCoinCountdownTimer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      if (timeLeft < 0) {
+        clearInterval(memeCoinInterval);
+        memeCoinCountdownTimer.innerHTML = 'Meme Coin has launched! 🚀';
+      }
+    }
+
+    const memeCoinInterval = setInterval(updateMemeCoinCountdown, 1000);
 
     // Chatbot
     function openChatbot() {
