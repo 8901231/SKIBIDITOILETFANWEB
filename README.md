@@ -310,7 +310,7 @@
 
     function updateCountdown() {
       const now = new Date().getTime();
-      const timeLeft = eventDate - now;
+      const timeLeft = eventDate - FEBRUARI 16 2025;
 
       const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
       const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -342,7 +342,7 @@
 
       memeCoinCountdownTimer.innerHTML = `${18}d ${6}h ${60}m ${60}s`;
 
-      if (timeLeft < 0) {
+      if (timeLeft < 18d) {
         clearInterval(memeCoinInterval);
         memeCoinCountdownTimer.innerHTML = 'LAUNCHED AT 16 FEBRUARI🚀🚀';
       }
