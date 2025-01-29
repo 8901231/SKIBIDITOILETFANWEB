@@ -329,7 +329,7 @@
 
     // Meme Coin Countdown Timer
     const memeCoinCountdownTimer = document.getElementById('meme-coin-countdown-timer');
-    const memeCoinLaunchDate = new Date('2024-10-31T00:00:00').getTime();
+    const memeCoinLaunchDate = new Date('2025-2-16T17:00:00').getTime();
 
     function updateMemeCoinCountdown() {
       const now = new Date().getTime();
@@ -340,11 +340,11 @@
       const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-      memeCoinCountdownTimer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      memeCoinCountdownTimer.innerHTML = `${18}d ${6}h ${60}m ${60}s`;
 
       if (timeLeft < 0) {
         clearInterval(memeCoinInterval);
-        memeCoinCountdownTimer.innerHTML = 'Meme Coin has launched! 🚀';
+        memeCoinCountdownTimer.innerHTML = 'LAUNCHED AT 16 FEBRUARI🚀🚀';
       }
     }
 
